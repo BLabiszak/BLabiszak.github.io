@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+a<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
   <script src="https://unpkg.com/feather-icons"></script>
   
   <style>
-    /* ROOT & RESET */
+    /* === ROOT & RESET === */
     :root{
       --clr-bg:#f7faf9;
       --clr-surface:#ffffff;
@@ -33,42 +33,48 @@
       --clr-accent-light:#46a873;
       --shadow:0 6px 18px rgba(0,0,0,.35);
     }
-    *,*::before,*::after{box-sizing:border-box;padding:0;margin:0;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Inter',sans-serif;background:var(--clr-bg);color:var(--clr-text);line-height:1.65;scroll-behavior:smooth;}
     h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--clr-heading);line-height:1.3;}
     img{max-width:100%;display:block;}
-    a{color:var(--clr-accent);text-decoration:none;transition:var(--transition);}a:hover{color:var(--clr-accent-light);}    
-    /* Decorative leaf outlines */
+    a{color:var(--clr-accent);text-decoration:none;transition:var(--transition);}a:hover{color:var(--clr-accent-light);}   
+    /* Decorative leaves */
     body::before,body::after{content:"";position:fixed;width:300px;height:300px;background:url('graphics/leaf-outline.svg') center/contain no-repeat;opacity:.04;pointer-events:none;z-index:-1;}
-    body::before{top:-120px;right:-120px;}body::after{bottom:-120px;left:-120px;transform:rotate(180deg);}    
-    /* LAYOUT */
+    body::before{top:-120px;right:-120px;}body::after{bottom:-120px;left:-120px;transform:rotate(180deg);}   
+    /* === LAYOUT === */
     .wrapper{max-width:1150px;margin:0 auto;padding:0 1.25rem;}
-    section{padding:5rem 0;position:relative;}section.section--alt{background:var(--clr-surface);}    
-    .wave{position:absolute;left:0;width:100%;line-height:0;pointer-events:none;} .wave-top{top:0;transform:translateY(-100%);} .wave-bottom{bottom:0;}    
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:1000;background:var(--clr-surface);box-shadow:var(--shadow);}    
+    section{padding:5rem 0;position:relative;}section.section--alt{background:var(--clr-surface);}   
+    .wave{position:absolute;left:0;width:100%;line-height:0;pointer-events:none;}
+    .wave-top{top:0;transform:translateY(-100%);} .wave-bottom{bottom:0;}
+    /* === NAV === */
+    .nav{position:sticky;top:0;z-index:1000;background:var(--clr-surface);box-shadow:var(--shadow);}
     .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;}
-    .nav__brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--clr-heading);} .nav__brand svg{stroke:var(--clr-heading);}    
-    .nav__list{display:flex;gap:1.8rem;list-style:none;} .nav__link{font-weight:600;position:relative;} .nav__link::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--clr-accent);transition:width var(--transition);} .nav__link:hover::after{width:100%;}
-    .theme-toggle{border:none;background:transparent;font-size:1.3rem;color:var(--clr-heading);cursor:pointer;} .theme-toggle:hover{color:var(--clr-accent);}    
-    /* HERO */
-    .hero{position:relative;height:70vh;min-height:380px;background:url('graphics/evolutionary-forest.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
-    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);} .hero__content{position:relative;z-index:1;padding:0 1rem;} .hero__title{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:.8rem;text-shadow:0 4px 20px rgba(0,0,0,.25);} .hero__subtitle{font-size:1.25rem;}
-    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;background:var(--clr-accent);color:#fff;margin-top:2rem;transition:var(--transition);} .btn:hover{background:var(--clr-accent-light);}    
-    /* GRIDS & CARDS */
+    .nav__brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--clr-heading);} .nav__brand svg{stroke:var(--clr-heading);}  
+    .nav__list{display:flex;gap:1.8rem;list-style:none;}
+    .nav__link{font-weight:600;position:relative;}
+    .nav__link::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--clr-accent);transition:width var(--transition);} .nav__link:hover::after{width:100%;}
+    .theme-toggle{border:none;background:transparent;font-size:1.3rem;color:var(--clr-heading);cursor:pointer;} .theme-toggle:hover{color:var(--clr-accent);} 
+    /* === HERO === */
+    .hero{position:relative;height:70vh;min-height:380px;background:url('graphics/evolutionary-forest.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);}   
+    .hero__content{position:relative;z-index:1;padding:0 1rem;}
+    .hero__title{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:.8rem;text-shadow:0 4px 20px rgba(0,0,0,.25);}    
+    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;background:var(--clr-accent);color:#fff;transition:var(--transition);margin-top:2rem;} .btn:hover{background:var(--clr-accent-light);}  
+    /* === GRIDS & CARDS === */
     .grid-two{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--clr-surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;} .card::before{content:"";position:absolute;top:-50px;right:-50px;width:140px;height:140px;background:var(--clr-accent-light);opacity:.12;border-radius:50%;}
+    .card{background:var(--clr-surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;}
+    .card::before{content:"";position:absolute;top:-50px;right:-50px;width:140px;height:140px;background:var(--clr-accent-light);opacity:.12;border-radius:50%;}
     .profile{display:grid;gap:2rem;grid-template-columns:220px 1fr;align-items:center;}@media(max-width:720px){.profile{grid-template-columns:1fr;text-align:center;}}
     .icon{width:22px;height:22px;margin-right:.4rem;stroke:currentColor;vertical-align:-4px;}
     .pub-list{list-style:decimal inside;} .pub-list li{margin-bottom:1rem;}
-    /* Reveal animation */
-    [data-reveal]{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.19,1,.22,1);} .reveal-visible{opacity:1;transform:none;}    
-    /* FOOTER */
+    /* === REVEAL === */
+    [data-reveal]{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.19,1,.22,1);} .reveal-visible{opacity:1;transform:none;}
+    /* === FOOTER === */
     footer{background:var(--clr-heading);color:#e4ede9;text-align:center;padding:2.5rem 1rem;margin-top:5rem;}
   </style>
 </head>
 <body>
-  <!-- NAV -->
+  <!-- === NAVBAR === -->
   <header class="nav" role="banner">
     <div class="wrapper nav__inner">
       <a href="#" class="nav__brand" data-reveal>
@@ -87,30 +93,172 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- === HERO === -->
   <section class="hero">
     <div class="hero__content" data-reveal>
       <h1 class="hero__title">Dr Bartosz Łabiszak</h1>
       <p class="hero__subtitle">Population Geneticist | Conservation Genomics of Forest Trees</p>
       <a href="#contact" class="btn">Get in touch</a>
     </div>
-    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480 96 360 96 120 84 0 60z"/></svg>
+    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480
+      d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480 84 360 90 240 108 120 120 0 108 0 108Z">
+      </path></svg>
+  </section>
+  <!-- ====== /HERO ====== -->
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about" data-reveal>
+    <div class="wrapper profile">
+      <img src="bartek.jpg" alt="Portrait of Bartosz Łabiszak" loading="lazy">
+      <div>
+        <h2><i data-feather="user" class="icon"></i>About me</h2>
+        <p><!-- Krótkie bio – wstaw własny tekst --> 
+          I investigate how historical demography and natural selection
+          shape genetic diversity in forest trees, with a special focus on
+          the endangered peat-bog pine <em>Pinus uliginosa</em>.
+        </p>
+        <p><!-- Uzupełnij dowolnie --> 
+          My work combines population genomics, paleo-climatic modelling and
+          conservation genetics to inform sustainable forest management and
+          species-protection programmes.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" data-reveal>
+  <!-- ====== RESEARCH ====== -->
+  <section id="research" class="section--alt" data-reveal>
+    <svg class="wave wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v30c-120 18-240 30-360 30S840 48 720 48 480 60 360 66 240 78 120 90 0 78 0 78Z"/></svg>
+
     <div class="wrapper">
-      <div class="profile card">
-        <img src="bartek.jpg" alt="Portrait of Bartosz Łabiszak">
-        <div>
-          <h2><i data-feather="user" class="icon"></i>About me</h2>
-          <p>I'm an assistant professor at the Department of Plant Ecology & Environmental Protection, Adam Mickiewicz University in Poznań, Poland. My work integrates population genomics, molecular ecology and demographic modelling to uncover how historical and contemporary forces shape genetic diversity of conifer species.</p>
-          <p>I focus on endangered peat‑bog pine (<i>Pinus uliginosa</i>) and Scots pine (<i>P. sylvestris</i>), aiming to translate genomic insights into effective conservation and management strategies.</p>
+      <h2 style="text-align:center;"><i data-feather="activity" class="icon"></i>Research interests</h2>
+      <div class="grid-two" style="margin-top:3rem;">
+        <div class="card">
+          <h3><i data-feather="trending-up" class="icon"></i>Population genomics</h3>
+          <p><!-- Placeholder --> Demographic history, gene flow and local adaptation in conifers under past and future climate change.</p>
+        </div>
+        <div class="card">
+          <h3><i data-feather="shield" class="icon"></i>Conservation genetics</h3>
+          <p><!-- Placeholder --> Genetic rescue strategies for fragmented populations of peat-bog pine and other endangered tree taxa.</p>
+        </div>
+        <div class="card">
+          <h3><i data-feather="cpu" class="icon"></i>Computational pipelines</h3>
+          <p><!-- Placeholder --> Developing reproducible workflows for SNP calling, genomic scans and landscape-genetic modelling.</p>
+        </div>
+      </div>
+    </div>
+
+    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-surface)" d="M0 0h1440v42c-120 18-240 30-360 30S840 60 720 60 480 72 360 78 240 90 120 102 0 90 0 90Z"/></svg>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects" data-reveal>
+    <div class="wrapper">
+      <h2><i data-feather="layers" class="icon"></i>Selected projects</h2>
+      <div class="grid-two" style="margin-top:2.5rem;">
+        <div class="card">
+          <h3>NCN OPUS 2020/37/B/NZ9/01496</h3>
+          <p><!-- Placeholder --> 
+            Genomic basis of adaptation in peat-bog pine across its entire
+            range – integrating whole-genome sequencing and common-garden
+            experiments.
+          </p>
+        </div>
+        <div class="card">
+          <h3>NCN PRELUDIUM 2021/41/N/NZ8/00125</h3>
+          <p><!-- Placeholder --> 
+            Hybridisation dynamics among European mountain pines under
+            climate-driven range shifts.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section id="research" class="section--alt" data-reveal>
-    <svg class="wave wave-top" xmlns="http://www
+  <!-- ====== PUBLICATIONS ====== -->
+  <section id="publications" class="section--alt" data-reveal>
+    <div class="wrapper">
+      <h2><i data-feather="book-open" class="icon"></i>Recent publications</h2>
+      <ol class="pub-list" style="margin-top:2rem;">
+        <!-- Zastąp własną listą publikacji -->
+        <li>Łabiszak B., Wachowiak W. (2023). Mid-Pleistocene events influenced the genetic structure of <em>Pinus sylvestris</em>. <em>J. Syst. Evol.</em></li>
+        <li>Wachowiak W. et al. (2023). Phylogeography of Scots pine in Europe and Asia. <em>J. Syst. Evol.</em></li>
+        <li>Łabiszak B. et al. (2021). Molecular history of endangered <em>Pinus uliginosa</em>. <em>J. Syst. Evol.</em></li>
+        <li>Łabiszak B., Wachowiak W. (2021). Reticulate evolution in European pines. <em>Forests</em>.</li>
+        <li>Zaborowska J., Łabiszak B. et al. (2021). Candidate genes for high-altitude adaptations in pines. <em>Int. J. Mol. Sci.</em></li>
+      </ol>
+      <p style="margin-top:1.5rem;"><a href="#" class="btn" style="padding:.6rem 1.6rem;">Full list →</a></p>
+    </div>
+  </section>
+
+  <!-- ====== TEACHING ====== -->
+  <section id="teaching" data-reveal>
+    <div class="wrapper">
+      <h2><i data-feather="watch" class="icon"></i>Teaching & mentoring</h2>
+      <div class="grid-two" style="margin-top:2.5rem;">
+        <div class="card">
+          <h3>Population genomics<br><small>(MSc course)</small></h3>
+          <p><!-- Placeholder --> Theory and hands-on tutorials on demographic modelling, selection scans and GWAS in R & Python.</p>
+        </div>
+        <div class="card">
+          <h3>Conservation genetics<br><small>(BSc course)</small></h3>
+          <p><!-- Placeholder --> Genetic markers, inbreeding, and management of small & isolated populations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact" class="section--alt" data-reveal>
+    <div class="wrapper" style="text-align:center;">
+      <h2><i data-feather="mail" class="icon"></i>Get in touch</h2>
+      <p><strong>Email:</strong> <a href="mailto:bartosz.labiszak@amu.edu.pl">bartosz.labiszak@amu.edu.pl</a></p>
+      <p><strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-2548-9186" target="_blank" rel="noopener">0000-0002-2548-9186</a></p>
+      <p><strong>Institute:</strong> Department of Plant Ecology &amp; Environmental Protection, Adam Mickiewicz University, Poznań</p>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    &copy; <span id="year"></span> Bartosz Łabiszak · All rights reserved
+  </footer>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script>
+    /* Feather icons */
+    feather.replace();
+
+    /* IntersectionObserver reveal */
+    const observer = new IntersectionObserver((entries,obs)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('reveal-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{
+      threshold:0.15
+    });
+    document.querySelectorAll('[data-reveal]').forEach(el=>observer.observe(el));
+
+    /* Theme toggle */
+    const toggleBtn = document.getElementById('themeToggle');
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const applyTheme = mode => {
+      document.documentElement.classList.toggle('dark',mode==='dark');
+      toggleBtn.textContent = mode==='dark' ? '☀️' : '🌙';
+    };
+    // init
+    applyTheme(localStorage.getItem('theme') || (darkScheme.matches ? 'dark':'light'));
+    // listener
+    toggleBtn.addEventListener('click',()=>{
+      const newMode = document.documentElement.classList.contains('dark') ? 'light':'dark';
+      localStorage.setItem('theme',newMode);
+      applyTheme(newMode);
+    });
+
+    /* Dynamic year */
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
