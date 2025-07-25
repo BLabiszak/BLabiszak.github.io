@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -55,11 +55,11 @@ a<!DOCTYPE html>
     .nav__link::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--clr-accent);transition:width var(--transition);} .nav__link:hover::after{width:100%;}
     .theme-toggle{border:none;background:transparent;font-size:1.3rem;color:var(--clr-heading);cursor:pointer;} .theme-toggle:hover{color:var(--clr-accent);} 
     /* === HERO === */
-    .hero{position:relative;height:70vh;min-height:380px;background:url('graphics/evolutionary-forest.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+    .hero{position:relative;height:70vh;min-height:380px;background:url('graphics/evolutionary-forest.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;}
     .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);}   
     .hero__content{position:relative;z-index:1;padding:0 1rem;}
     .hero__title{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:.8rem;text-shadow:0 4px 20px rgba(0,0,0,.25);}    
-    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;background:var(--clr-accent);color:#fff;transition:var(--transition);margin-top:2rem;} .btn:hover{background:var(--clr-accent-light);}  
+    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;background:var(--clr-accent);color:#fff;transition:var(--transition);margin-top:2rem;} .btn:hover{background:var(--clr-accent-light);}
     /* === GRIDS & CARDS === */
     .grid-two{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
     .card{background:var(--clr-surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;}
@@ -100,9 +100,9 @@ a<!DOCTYPE html>
       <p class="hero__subtitle">Population Geneticist | Conservation Genomics of Forest Trees</p>
       <a href="#contact" class="btn">Get in touch</a>
     </div>
-    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480
-      d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480 84 360 90 240 108 120 120 0 108 0 108Z">
-      </path></svg>
+    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+      <path fill="var(--clr-bg)" d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480 84 360 90 240 108 120 120 0 108 0 108Z"></path>
+    </svg>
   </section>
   <!-- ====== /HERO ====== -->
 
@@ -112,12 +112,12 @@ a<!DOCTYPE html>
       <img src="bartek.jpg" alt="Portrait of Bartosz Łabiszak" loading="lazy">
       <div>
         <h2><i data-feather="user" class="icon"></i>About me</h2>
-        <p><!-- Krótkie bio – wstaw własny tekst --> 
+        <p>
           I investigate how historical demography and natural selection
           shape genetic diversity in forest trees, with a special focus on
           the endangered peat-bog pine <em>Pinus uliginosa</em>.
         </p>
-        <p><!-- Uzupełnij dowolnie --> 
+        <p>
           My work combines population genomics, paleo-climatic modelling and
           conservation genetics to inform sustainable forest management and
           species-protection programmes.
@@ -128,27 +128,29 @@ a<!DOCTYPE html>
 
   <!-- ====== RESEARCH ====== -->
   <section id="research" class="section--alt" data-reveal>
-    <svg class="wave wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v30c-120 18-240 30-360 30S840 48 720 48 480 60 360 66 240 78 120 90 0 78 0 78Z"/></svg>
-
+    <svg class="wave wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+      <path fill="var(--clr-bg)" d="M0 0h1440v30c-120 18-240 30-360 30S840 48 720 48 480 60 360 66 240 78 120 90 0 78 0 78Z"></path>
+    </svg>
     <div class="wrapper">
       <h2 style="text-align:center;"><i data-feather="activity" class="icon"></i>Research interests</h2>
       <div class="grid-two" style="margin-top:3rem;">
         <div class="card">
           <h3><i data-feather="trending-up" class="icon"></i>Population genomics</h3>
-          <p><!-- Placeholder --> Demographic history, gene flow and local adaptation in conifers under past and future climate change.</p>
+          <p>Demographic history, gene flow and local adaptation in conifers under past and future climate change.</p>
         </div>
         <div class="card">
           <h3><i data-feather="shield" class="icon"></i>Conservation genetics</h3>
-          <p><!-- Placeholder --> Genetic rescue strategies for fragmented populations of peat-bog pine and other endangered tree taxa.</p>
+          <p>Genetic rescue strategies for fragmented populations of peat-bog pine and other endangered tree taxa.</p>
         </div>
         <div class="card">
           <h3><i data-feather="cpu" class="icon"></i>Computational pipelines</h3>
-          <p><!-- Placeholder --> Developing reproducible workflows for SNP calling, genomic scans and landscape-genetic modelling.</p>
+          <p>Developing reproducible workflows for SNP calling, genomic scans and landscape-genetic modelling.</p>
         </div>
       </div>
     </div>
-
-    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-surface)" d="M0 0h1440v42c-120 18-240 30-360 30S840 60 720 60 480 72 360 78 240 90 120 102 0 90 0 90Z"/></svg>
+    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+      <path fill="var(--clr-surface)" d="M0 0h1440v42c-120 18-240 30-360 30S840 60 720 60 480 72 360 78 240 90 120 120 0 108 0 108Z"></path>
+    </svg>
   </section>
 
   <!-- ====== PROJECTS ====== -->
@@ -158,7 +160,7 @@ a<!DOCTYPE html>
       <div class="grid-two" style="margin-top:2.5rem;">
         <div class="card">
           <h3>NCN OPUS 2020/37/B/NZ9/01496</h3>
-          <p><!-- Placeholder --> 
+          <p>
             Genomic basis of adaptation in peat-bog pine across its entire
             range – integrating whole-genome sequencing and common-garden
             experiments.
@@ -166,7 +168,7 @@ a<!DOCTYPE html>
         </div>
         <div class="card">
           <h3>NCN PRELUDIUM 2021/41/N/NZ8/00125</h3>
-          <p><!-- Placeholder --> 
+          <p>
             Hybridisation dynamics among European mountain pines under
             climate-driven range shifts.
           </p>
@@ -180,7 +182,6 @@ a<!DOCTYPE html>
     <div class="wrapper">
       <h2><i data-feather="book-open" class="icon"></i>Recent publications</h2>
       <ol class="pub-list" style="margin-top:2rem;">
-        <!-- Zastąp własną listą publikacji -->
         <li>Łabiszak B., Wachowiak W. (2023). Mid-Pleistocene events influenced the genetic structure of <em>Pinus sylvestris</em>. <em>J. Syst. Evol.</em></li>
         <li>Wachowiak W. et al. (2023). Phylogeography of Scots pine in Europe and Asia. <em>J. Syst. Evol.</em></li>
         <li>Łabiszak B. et al. (2021). Molecular history of endangered <em>Pinus uliginosa</em>. <em>J. Syst. Evol.</em></li>
@@ -198,11 +199,11 @@ a<!DOCTYPE html>
       <div class="grid-two" style="margin-top:2.5rem;">
         <div class="card">
           <h3>Population genomics<br><small>(MSc course)</small></h3>
-          <p><!-- Placeholder --> Theory and hands-on tutorials on demographic modelling, selection scans and GWAS in R & Python.</p>
+          <p>Theory and hands-on tutorials on demographic modelling, selection scans and GWAS in R & Python.</p>
         </div>
         <div class="card">
           <h3>Conservation genetics<br><small>(BSc course)</small></h3>
-          <p><!-- Placeholder --> Genetic markers, inbreeding, and management of small & isolated populations.</p>
+          <p>Genetic markers, inbreeding, and management of small & isolated populations.</p>
         </div>
       </div>
     </div>
