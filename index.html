@@ -12,14 +12,36 @@
   <meta property="og:image" content="images/og-cover.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blabiszak.github.io/">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bartosz Łabiszak",
+    "url": "https://blabiszak.github.io/",
+    "sameAs": [
+      "https://orcid.org/0000-0002-2548-9186",
+      "https://www.researchgate.net/profile/Bartosz-Labiszak"
+    ],
+    "jobTitle": "Assistant Professor",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Adam Mickiewicz University"
+    }
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </noscript>
 
   <style>
-  /* ---------------  CSS VARIABLES --------------- */
   :root{
     --accent: #046c46;
     --accent-light: #7ccf9d;
@@ -34,8 +56,6 @@
     --bg: var(--bg-dark);
     --text: var(--text-dark);
   }
-
-  /* ---------------  GLOBAL --------------- */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth;}
   body{
@@ -50,12 +70,17 @@
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
   img{max-width:100%;height:auto}
-
+  /* Visually hidden class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    border: 0;
+  }
   /* Skip link */
   .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
   .skip:focus{left:1rem;top:1rem;width:auto;height:auto;padding:0.5rem 1rem;background:var(--accent);color:#fff;border-radius:var(--radius);z-index:1000}
-
-  /* ---------------  NAV --------------- */
   nav{
     position:sticky;top:0;z-index:999;
     backdrop-filter:blur(12px);
@@ -66,8 +91,6 @@
   nav ul{list-style:none;display:flex;gap:1.5rem;margin:0;padding:0}
   nav a{font-weight:600;padding:0.25rem 0.5rem;border-radius:var(--radius);transition:background var(--transition)}
   nav a:hover,nav a[aria-current="page"]{background:var(--accent-light);color:#033c2c}
-
-  /* ---------------  HERO --------------- */
   .hero{
     display:grid;grid-template-columns:1fr 1fr;
     min-height:70vh;
@@ -76,7 +99,7 @@
     position:relative;
     overflow:hidden;
   }
-  .hero::before{ /* dekoracyjny liść */
+  .hero::before{
     content:"";
     position:absolute;
     width:600px;height:600px;
@@ -105,14 +128,11 @@
     font-weight:600;transition:background var(--transition)
   }
   .cta a:hover{background:#033c2c}
-
   .avatar{
     width:280px;height:280px;border-radius:50%;
     object-fit:cover;border:6px solid rgba(255,255,255,0.6);
     box-shadow:0 6px 20px rgba(0,0,0,0.12)
   }
-
-  /* ---------------  SECTIONS --------------- */
   section{padding:4.5rem 1rem;max-width:900px;margin-inline:auto}
   section h2{font-size:2rem;margin-top:0;color:var(--accent)}
   .card{
@@ -123,15 +143,11 @@
     margin-bottom:1.5rem;
   }
   [data-theme="dark"] .card{background:rgba(36,54,46,0.55)}
-
-  /* ---------------  FOOTER --------------- */
   footer{
     text-align:center;padding:2rem 1rem;
     font-size:.875rem;background:rgba(0,0,0,0.05)
   }
   [data-theme="dark"] footer{background:rgba(255,255,255,0.05)}
-
-  /* ---------------  THEME TOGGLE --------------- */
   .theme-toggle{
     position:fixed;right:1rem;bottom:1rem;
     border:none;cursor:pointer;
@@ -143,9 +159,8 @@
   </style>
 </head>
 <body>
-  <a href="#about" class="skip">Skip to content</a>
+  <a href="#about" class="skip">Skip to main content</a>
 
-  <!-- NAV -->
   <nav>
     <ul>
       <li><a href="#about" aria-current="page">About</a></li>
@@ -156,112 +171,120 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <img src="images/profile.webp" alt="Photo of Bartosz Łabiszak" class="avatar" loading="lazy">
-    <div class="hero-content">
-      <h1>dr Bartosz Łabiszak</h1>
-      <p class="tagline">Assistant Professor • Population &amp; Evolutionary Geneticist</p>
-      <div class="cta">
-        <a href="mailto:bartosz.labiszak@amu.edu.pl">Email</a>
-        <a href="https://orcid.org/0000-0002-2548-9186" target="_blank" rel="noopener">ORCID ↗</a>
-        <a href="https://www.researchgate.net/profile/Bartosz-Labiszak" target="_blank" rel="noopener">ResearchGate ↗</a>
+  <main>
+    <header class="hero" id="top">
+      <img src="images/profile.webp" alt="Portrait of Bartosz Łabiszak" class="avatar" loading="lazy">
+      <div class="hero-content">
+        <h1>dr Bartosz Łabiszak</h1>
+        <p class="tagline">Assistant Professor • Population &amp; Evolutionary Geneticist</p>
+        <div class="cta">
+          <a href="mailto:bartosz.labiszak@amu.edu.pl">Email</a>
+          <a href="https://orcid.org/0000-0002-2548-9186" target="_blank" rel="noopener">ORCID <span class="sr-only">(opens in new tab)</span> ↗</a>
+          <a href="https://www.researchgate.net/profile/Bartosz-Labiszak" target="_blank" rel="noopener">ResearchGate <span class="sr-only">(opens in new tab)</span> ↗</a>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About</h2>
-    <div class="card">
-      <p>I am a population geneticist specialising in <strong>forest tree species</strong>. My research explores the genomic signatures of <em>speciation</em>, <em>hybridisation</em> and local adaptation in European conifers. I combine extensive field sampling with high-throughput sequencing and modern bioinformatic pipelines to disentangle evolutionary processes shaping biodiversity.:contentReference[oaicite:1]{index=1}</p>
-      <p>Currently, I hold the position of <strong>Assistant Professor (adiunkt)</strong> at the <abbr title="Institute of Environmental Biology">Faculty of Biology</abbr>, Adam Mickiewicz University in Poznań, Poland.:contentReference[oaicite:2]{index=2}</p>
-    </div>
-  </section>
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>I am a population geneticist specialising in <strong>forest tree species</strong>. My research explores the genomic signatures of <em>speciation</em>, <em>hybridisation</em> and local adaptation in European conifers. I combine extensive field sampling with high-throughput sequencing and modern bioinformatic pipelines to disentangle evolutionary processes shaping biodiversity.</p>
+        <p>Currently, I hold the position of <strong>Assistant Professor (adiunkt)</strong> at the <abbr title="Institute of Environmental Biology">Faculty of Biology</abbr>, Adam Mickiewicz University in Poznań, Poland.</p>
+      </div>
+    </section>
 
-  <!-- RESEARCH INTERESTS -->
-  <section id="research">
-    <h2>Research&nbsp;Interests</h2>
-    <div class="card">
-      <ul>
-        <li>Speciation &amp; hybridization in plants:contentReference[oaicite:3]{index=3}</li>
-        <li>Conservation &amp; population genomics of conifers</li>
-        <li>Phylogeography and paleo-climatic modelling</li>
-        <li>Bioinformatic pipelines for NGS data analysis</li>
-        <li>Application of genomic tools in forest management</li>
-      </ul>
-    </div>
-  </section>
+    <section id="research">
+      <h2>Research&nbsp;Interests</h2>
+      <div class="card">
+        <ul>
+          <li>Speciation &amp; hybridization in plants</li>
+          <li>Conservation &amp; population genomics of conifers</li>
+          <li>Phylogeography and paleo-climatic modelling</li>
+          <li>Bioinformatic pipelines for NGS data analysis</li>
+          <li>Application of genomic tools in forest management</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <h2>Selected&nbsp;Publications <small>(last 5 years)</small></h2>
+    <section id="publications">
+      <h2>Selected&nbsp;Publications <small>(last 5 years)</small></h2>
+      <article class="card">
+        <p><strong>Hybridization has localized effect on genetic variation in closely related pines</strong>. <em>BMC Plant Biology</em> (2024). [co-authors: Szczepański S., Łabiszak B., Wachowiak W.]</p>
+      </article>
+      <article class="card">
+        <p><strong>Genetic and biometric patterns of range-wide divergence of iconic European pines</strong>. <em>Vegetation History &amp; Archaeobotany</em> (2024). [Łabiszak B. et al.]</p>
+      </article>
+      <article class="card">
+        <p><strong>Molecular signatures of reticulate evolution within the complex of European pine taxa</strong>. <em>Genes</em> (2023). [Łabiszak B. et al.]</p>
+      </article>
+      <article class="card">
+        <p><strong>Are there any traces of <em>Pinus uliginosa</em> in the Stołowe Mountains outside the Wielkie Torfowisko Batorowskie?</strong> <em>Acta Societatis Botanicorum Poloniae</em> 90:904 (2021). [Boratyńska K., Łabiszak B. et al.]</p>
+      </article>
+    </section>
 
-    <article class="card">
-      <p><strong>Hybridization has localized effect on genetic variation in closely related pines</strong>. <em>BMC Plant Biology</em> (2024). [co-authors: Szczepański S., Łabiszak B., Wachowiak W.]:contentReference[oaicite:4]{index=4}</p>
-    </article>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Population Genetics</strong> – lecture &amp; lab for BSc Biology</li>
+          <li><strong>Genomics of Forest Trees</strong> – MSc elective course</li>
+          <li><strong>Programming in R for Biologists</strong> – workshop series</li>
+        </ul>
+        <p><em>Supervision:</em> I welcome motivated students interested in evolutionary genomics of non-model plants.</p>
+      </div>
+    </section>
 
-    <article class="card">
-      <p><strong>Genetic and biometric patterns of range-wide divergence of iconic European pines</strong>. <em>Vegetation History &amp; Archaeobotany</em> (2024). [Łabiszak B. et al.]:contentReference[oaicite:5]{index=5}</p>
-    </article>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>
+          <strong>Institute of Environmental Biology, Adam Mickiewicz University</strong><br>
+          ul. Uniwersytetu Poznańskiego 6, 61-614 Poznań, POLAND<br>
+          Room 1.23 F | Tel. +48 61 829 57 46 | Email: <a href="mailto:bartosz.labiszak@amu.edu.pl">bartosz.labiszak@amu.edu.pl</a>
+        </p>
+        <form action="mailto:bartosz.labiszak@amu.edu.pl" method="POST" enctype="text/plain">
+          <label for="name">Name:</label>
+          <input id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <article class="card">
-      <p><strong>Molecular signatures of reticulate evolution within the complex of European pine taxa</strong>. <em>Genes</em> (2023). [Łabiszak B. et al.]:contentReference[oaicite:6]{index=6}</p>
-    </article>
-
-    <article class="card">
-      <p><strong>Are there any traces of <em>Pinus uliginosa</em> in the Stołowe Mountains outside the Wielkie Torfowisko Batorowskie?</strong> <em>Acta Societatis Botanicorum Poloniae</em> 90:904 (2021). [Boratyńska K., Łabiszak B. et al.]:contentReference[oaicite:7]{index=7}</p>
-    </article>
-  </section>
-
-  <!-- TEACHING -->
-  <section id="teaching">
-    <h2>Teaching</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Population Genetics</strong> – lecture &amp; lab for BSc Biology</li>
-        <li><strong>Genomics of Forest Trees</strong> – MSc elective course</li>
-        <li><strong>Programming in R for Biologists</strong> – workshop series</li>
-      </ul>
-      <p><em>Supervision:</em> I welcome motivated students interested in evolutionary genomics of non-model plants.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-
-    <div class="card">
-      <p><strong>Institute of Environmental Biology, Adam Mickiewicz University</strong><br>
-         ul. Uniwersytetu Poznańskiego 6, 61-614 Poznań, POLAND<br>
-         Room 1.23 F | Tel. +48 61 829 57 46 | Email: <a href="mailto:bartosz.labiszak@amu.edu.pl">bartosz.labiszak@amu.edu.pl</a>:contentReference[oaicite:8]{index=8}</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Bartosz Łabiszak &nbsp;|&nbsp; Designed with ❤️&nbsp;in Poznań
   </footer>
 
-  <!-- THEME TOGGLE -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <span aria-hidden="true">🌙</span>
+    <span class="sr-only">Toggle dark mode</span>
+  </button>
+
+  <!-- Analytics (privacy-friendly example) -->
+  <!-- <script defer data-domain="blabiszak.github.io" src="https://plausible.io/js/script.js"></script> -->
 
   <script>
-  /* Year in footer */
+  // Year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* Theme switcher with localStorage */
+  // Theme switcher with localStorage
   const toggle = document.getElementById('themeToggle');
   const root   = document.documentElement;
   const stored = localStorage.getItem('theme');
-  if(stored){root.setAttribute('data-theme', stored);toggle.textContent = stored==='dark'?'☀️':'🌙';}
-
+  if(stored){
+    root.setAttribute('data-theme', stored);
+    toggle.firstElementChild.textContent = stored==='dark'?'☀️':'🌙';
+  }
   toggle.addEventListener('click', () => {
     const current = root.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    toggle.textContent = next==='dark'?'☀️':'🌙';
+    toggle.firstElementChild.textContent = next==='dark'?'☀️':'🌙';
   });
   </script>
 </body>
