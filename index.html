@@ -1,234 +1,116 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bartosz Łabiszak – Strona domowa</title>
-  <meta name="description" content="Strona domowa dr Bartosza Łabiszaka – genetyka populacyjnego drzew leśnych na Uniwersytecie im. Adama Mickiewicza w Poznaniu.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Bartosz Łabiszak | Evolutionary Biology</title>
+  <meta name="description" content="Dr Bartosz Łabiszak – population geneticist specialising in conservation genomics and evolutionary history of conifers.">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  
   <style>
-    :root {
-      --primary: #335c43;
-      --primary-light: #4a7c59;
-      --background: #f6faf8;
-      --text: #243226;
-      --accent: #8fbf7a;
-      --radius: 1.2rem;
-      --shadow: 0 6px 14px rgba(0,0,0,.08);
+    /* ROOT & RESET */
+    :root{
+      --clr-bg:#f7faf9;
+      --clr-surface:#ffffff;
+      --clr-text:#263229;
+      --clr-heading:#173420;
+      --clr-accent:#46a873;
+      --clr-accent-light:#7ccf9d;
+      --radius:1.2rem;
+      --shadow:0 6px 18px rgba(0,0,0,.08);
+      --transition:.3s ease;
     }
-
-    *,*::before,*::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
+    html.dark{
+      --clr-bg:#16211d;
+      --clr-surface:#1f2d28;
+      --clr-text:#e1eee7;
+      --clr-heading:#fafdfc;
+      --clr-accent:#7ccf9d;
+      --clr-accent-light:#46a873;
+      --shadow:0 6px 18px rgba(0,0,0,.35);
     }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.6;
-    }
-
-    /* ─────  HERO  ───── */
-    .hero {
-      position: relative;
-      height: 70vh;
-      min-height: 380px;
-      background: url('trees_header.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 50%, rgba(0,0,0,.15) 100%);
-    }
-    .hero-content {
-      position: relative;
-      padding: 0 1rem;
-      z-index: 1;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin: 0 0 .5rem;
-      letter-spacing: .5px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: .75rem 1.75rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .3s ease;
-    }
-    .btn:hover { background: #7cad6a; }
-
-    /* ─────  NAV  ───── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    nav ul {
-      margin: 0;
-      padding: .5rem 1rem;
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      list-style: none;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      position: relative;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width .25s ease;
-    }
-    nav a:hover::after { width: 100%; }
-
-    /* ─────  LAYOUT  ───── */
-    .container {
-      max-width: 960px;
-      margin: 4rem auto;
-      padding: 0 1rem;
-    }
-    section + section { margin-top: 4rem; }
-
-    /* Profile Card */
-    .profile-card {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 2rem;
-      align-items: center;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-    }
-    .profile-card img {
-      width: 100%;
-      border-radius: var(--radius);
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    /* Publications list */
-    .pub-list { padding-left: 1.2rem; }
-    .pub-list li { margin-bottom: .85rem; }
-
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 6rem;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 640px) {
-      .profile-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      nav ul { gap: 1rem; }
-    }
+    *,*::before,*::after{box-sizing:border-box;padding:0;margin:0;}
+    body{font-family:'Inter',sans-serif;background:var(--clr-bg);color:var(--clr-text);line-height:1.65;scroll-behavior:smooth;}
+    h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--clr-heading);line-height:1.3;}
+    img{max-width:100%;display:block;}
+    a{color:var(--clr-accent);text-decoration:none;transition:var(--transition);}a:hover{color:var(--clr-accent-light);}    
+    /* Decorative leaf outlines */
+    body::before,body::after{content:"";position:fixed;width:300px;height:300px;background:url('graphics/leaf-outline.svg') center/contain no-repeat;opacity:.04;pointer-events:none;z-index:-1;}
+    body::before{top:-120px;right:-120px;}body::after{bottom:-120px;left:-120px;transform:rotate(180deg);}    
+    /* LAYOUT */
+    .wrapper{max-width:1150px;margin:0 auto;padding:0 1.25rem;}
+    section{padding:5rem 0;position:relative;}section.section--alt{background:var(--clr-surface);}    
+    .wave{position:absolute;left:0;width:100%;line-height:0;pointer-events:none;} .wave-top{top:0;transform:translateY(-100%);} .wave-bottom{bottom:0;}    
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:1000;background:var(--clr-surface);box-shadow:var(--shadow);}    
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;}
+    .nav__brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--clr-heading);} .nav__brand svg{stroke:var(--clr-heading);}    
+    .nav__list{display:flex;gap:1.8rem;list-style:none;} .nav__link{font-weight:600;position:relative;} .nav__link::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--clr-accent);transition:width var(--transition);} .nav__link:hover::after{width:100%;}
+    .theme-toggle{border:none;background:transparent;font-size:1.3rem;color:var(--clr-heading);cursor:pointer;} .theme-toggle:hover{color:var(--clr-accent);}    
+    /* HERO */
+    .hero{position:relative;height:70vh;min-height:380px;background:url('graphics/evolutionary-forest.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);} .hero__content{position:relative;z-index:1;padding:0 1rem;} .hero__title{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:.8rem;text-shadow:0 4px 20px rgba(0,0,0,.25);} .hero__subtitle{font-size:1.25rem;}
+    .btn{display:inline-block;padding:.85rem 2rem;border-radius:50px;font-weight:600;background:var(--clr-accent);color:#fff;margin-top:2rem;transition:var(--transition);} .btn:hover{background:var(--clr-accent-light);}    
+    /* GRIDS & CARDS */
+    .grid-two{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{background:var(--clr-surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;position:relative;overflow:hidden;} .card::before{content:"";position:absolute;top:-50px;right:-50px;width:140px;height:140px;background:var(--clr-accent-light);opacity:.12;border-radius:50%;}
+    .profile{display:grid;gap:2rem;grid-template-columns:220px 1fr;align-items:center;}@media(max-width:720px){.profile{grid-template-columns:1fr;text-align:center;}}
+    .icon{width:22px;height:22px;margin-right:.4rem;stroke:currentColor;vertical-align:-4px;}
+    .pub-list{list-style:decimal inside;} .pub-list li{margin-bottom:1rem;}
+    /* Reveal animation */
+    [data-reveal]{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.19,1,.22,1);} .reveal-visible{opacity:1;transform:none;}    
+    /* FOOTER */
+    footer{background:var(--clr-heading);color:#e4ede9;text-align:center;padding:2.5rem 1rem;margin-top:5rem;}
   </style>
 </head>
 <body>
-  <header class="hero" role="banner">
-    <div class="hero-content">
-      <h1>dr Bartosz Łabiszak</h1>
-      <p>Genetyk populacyjny – Uniwersytet im. Adama Mickiewicza w Poznaniu</p>
-      <a href="#contact" class="btn">Kontakt</a>
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="wrapper nav__inner">
+      <a href="#" class="nav__brand" data-reveal>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C8 2 4 6 4 11c0 4 3 8 8 11 5-3 8-7 8-11 0-5-4-9-8-9z"/></svg>
+        Bartosz Łabiszak
+      </a>
+      <ul class="nav__list" role="navigation" data-reveal>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#research">Research</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#publications">Publications</a></li>
+        <li><a class="nav__link" href="#teaching">Teaching</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="Switch theme" data-reveal>🌙</button>
     </div>
   </header>
 
-  <nav aria-label="Główna nawigacja">
-    <ul>
-      <li><a href="#about">O&nbsp;mnie</a></li>
-      <li><a href="#publications">Publikacje</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <div class="container">
-      <!-- ABOUT -->
-      <section id="about" aria-label="O mnie">
-        <div class="profile-card">
-          <img src="bartek.jpg" alt="Portret Bartosza Łabiszaka">
-          <div>
-            <h2>O mnie</h2>
-            <p>Adiunkt w Zakładzie Ekologii Roślin i Ochrony Środowiska UAM. Moje badania koncentrują się na genetyce populacyjnej, historii demograficznej i ewolucji drzew leśnych – zwłaszcza zagrożonej <i>Pinus uliginosa</i>. Łączę analizy molekularne z modelowaniem zmian klimatu oraz narzędziami genomiki populacyjnej.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PUBLICATIONS -->
-      <section id="publications" aria-label="Publikacje">
-        <h2>Wybrane publikacje</h2>
-        <ol class="pub-list">
-          <li>Łabiszak B., Wachowiak W. (2023). Mid‐Pleistocene events influenced the current spatial structure of genetic diversity in Scots pine. <i>Journal of Systematics and Evolution</i>.</li>
-          <li>Wachowiak W. et al. (2023). Phylogeography of Scots pine in Europe and Asia. <i>Journal of Systematics and Evolution</i>.</li>
-          <li>Łabiszak B. et al. (2021). Molecular and paleo‐climatic data on <i>Pinus uliginosa</i>. <i>JSE</i>.</li>
-          <li>Łabiszak B., Wachowiak W. (2021). Reticulate evolution in European pines. <i>Forests</i>.</li>
-          <li>Zaborowska J., Łabiszak B. et al. (2021). High‑Altitude Adaptations in pines. <i>IJMS</i>.</li>
-        </ol>
-      </section>
-
-      <!-- CV -->
-      <section id="cv" aria-label="CV">
-        <h2>CV</h2>
-        <p><a class="btn" href="CV_Bartosz_Labiszak_2024.pdf" download>Pobierz CV (PDF)</a></p>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" aria-label="Kontakt">
-        <h2>Kontakt</h2>
-        <p>Uniwersytet im. Adama Mickiewicza w Poznaniu<br>
-        Wydział Biologii, Zakład Ekologii Roślin i Ochrony Środowiska</p>
-        <p><strong>Email:</strong> <a href="mailto:bartosz.labiszak@amu.edu.pl">bartosz.labiszak@amu.edu.pl</a><br>
-        <strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-2548-9186" target="_blank" rel="noopener">0000‑0002‑2548‑9186</a></p>
-      </section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content" data-reveal>
+      <h1 class="hero__title">Dr Bartosz Łabiszak</h1>
+      <p class="hero__subtitle">Population Geneticist | Conservation Genomics of Forest Trees</p>
+      <a href="#contact" class="btn">Get in touch</a>
     </div>
-  </main>
+    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"><path fill="var(--clr-bg)" d="M0 0h1440v60c-120 24-240 36-360 36s-240-12-360-12S480 96 360 96 120 84 0 60z"/></svg>
+  </section>
 
-  <footer>
-    &copy; <span id="year"></span> Bartosz Łabiszak. Wszelkie prawa zastrzeżone.
-  </footer>
+  <!-- ABOUT -->
+  <section id="about" data-reveal>
+    <div class="wrapper">
+      <div class="profile card">
+        <img src="bartek.jpg" alt="Portrait of Bartosz Łabiszak">
+        <div>
+          <h2><i data-feather="user" class="icon"></i>About me</h2>
+          <p>I'm an assistant professor at the Department of Plant Ecology & Environmental Protection, Adam Mickiewicz University in Poznań, Poland. My work integrates population genomics, molecular ecology and demographic modelling to uncover how historical and contemporary forces shape genetic diversity of conifer species.</p>
+          <p>I focus on endangered peat‑bog pine (<i>Pinus uliginosa</i>) and Scots pine (<i>P. sylvestris</i>), aiming to translate genomic insights into effective conservation and management strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    // Dynamically update the copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  <!-- RESEARCH -->
+  <section id="research" class="section--alt" data-reveal>
+    <svg class="wave wave-top" xmlns="http://www
