@@ -1,188 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bartosz Łabiszak | Evolutionary Biology</title>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Bartosz Łabiszak – Evolutionary Genomics">
-  <meta property="og:description" content="Population geneticist working on conservation genomics of forest trees.">
-  <meta property="og:image" content="https://example.github.io/assets/hero.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Bartosz Łabiszak · Evolutionary & Conservation Genomics</title>
+  <meta name="description" content="Bartosz Łabiszak, population geneticist at Adam Mickiewicz University in Poznań. Research on forest tree evolution, hybridisation and conservation genomics.">
+  <link rel="canonical" href="https://blabiszak.github.io/">
+  <meta property="og:title" content="Bartosz Łabiszak · Evolutionary & Conservation Genomics">
+  <meta property="og:description" content="Exploring the evolutionary history and genetic diversity of forest trees.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.github.io/">
-  <meta name="description" content="Forest tree population geneticist exploring evolutionary processes and genomic adaptation of conifers in a changing climate.">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
-  
-  <style>
-    /* === ROOT & RESET === */
-    :root{
-      --clr-bg:#fdfefc;
-      --clr-surface:#ffffff;
-      --clr-text:#1b2d26;
-      --clr-heading:#123125;
-      --clr-accent:#3aa35e;
-      --clr-accent-light:#2c7b49;
-      --shadow:0 6px 18px rgba(0,0,0,.1);
-      --transition:.2s cubic-bezier(.4,0,.2,1);
-    }
-    html.dark{
-      --clr-bg:#16211d;
-      --clr-surface:#1f2d28;
-      --clr-text:#e1eee7;
-      --clr-heading:#fafdfc;
-      --clr-accent:#7ccf9d;
-      --clr-accent-light:#9cdfb0;
-      --shadow:0 6px 18px rgba(0,0,0,.35);
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:var(--clr-bg);color:var(--clr-text);line-height:1.65;scroll-behavior:smooth;}
-    h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--clr-heading);line-height:1.3;}
-    img{max-width:100%;display:block;}
-  
-    a{color:var(--clr-accent);text-decoration:none;transition:var(--transition);}a:hover{color:var(--clr-accent-light);}   
-    /* Decorative leaves */
-    body::before,body::after{content:"";position:fixed;width:300px;height:300px;background:url("assets/leaf-outline.svg") center/contain no-repeat;opacity:.04;pointer-events:none;z-index:-1;}
-    body::before{top:-120px;right:-120px;}body::after{bottom:-120px;left:-120px;transform:rotate(180deg);}   
-    /* === LAYOUT === */
-    .wrapper{max-width:1150px;margin:0 auto;padding:0 1.25rem;}
-    section{padding:5rem 0;position:relative;}section.section--alt{background:var(--clr-surface);}   
-    .wave{position:absolute;left:0;width:100%;line-height:0;pointer-events:none;}
-    .wave-top{top:0;transform:translateY(-100%);} .wave-bottom{bottom:0;}
-
-    /* === PROFILE IMAGE === */
-    .profile img{
-      width:120px;
-      border-radius:50%;
-      object-fit:cover;
-      box-shadow:var(--shadow);
-    }
-
-    /* === NEWS === */
-    .news__list{list-style:none;display:grid;gap:1rem;margin-top:1.5rem;}
-    .news__date{font-size:.9rem;color:var(--clr-text);margin-right:.6rem;}
-    .news__archive{margin-top:1.2rem;}
-
-    /* === NAV === */
-    .nav{position:sticky;top:0;z-index:1000;background:var(--clr-surface);box-shadow:var(--shadow);}
-    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;}
-    .nav__brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--clr-heading);} .nav__brand svg{stroke:var(--clr-heading);}  
-    .nav__list{display:flex;gap:1.8rem;list-style:none;}
-    .nav__link{font-weight:600;position:relative;}
-    .nav__link::after{content:"";position:absolute;left:0;bottom:-.3rem;width:0;height:2px;background:var(--clr-accent);transition:width var(--transition);} .nav__link:hover::after{width:100%;}
-    .theme-toggle{border:none;background:transparent;cursor:pointer;font-size:1.25rem;}
-
-    /* === HERO === */
-    .hero{position:relative;text-align:center;background:var(--clr-surface);} .hero__content{padding:8rem 1rem 6rem;} .hero__title{font-size:clamp(2.3rem,5vw,4rem);} .hero__subtitle{font-size:clamp(1rem,2.5vw,1.5rem);margin:.6rem 0 2rem;}
-
-    /* === ABOUT === */
-    .profile{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;}
-
-    /* === FOOTER === */
-    footer{padding:2rem 0;text-align:center;font-size:.9rem;color:var(--clr-text);}footer a{font-weight:600;}
-
-    /* Reveal animation */
-    [data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .6s ease,transform .6s ease;}
-    .reveal-visible{opacity:1;transform:none;}
-  </style>
+  <meta property="og:url" content="https://blabiszak.github.io/">
+  <meta property="og:image" content="https://blabiszak.github.io/assets/profile.jpg">
+  <meta property="og:image:alt" content="Bartosz Łabiszak at a scientific conference">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
-  <!-- ====== NAV ====== -->
-  <header class="nav">
-    <div class="nav__inner wrapper" data-reveal>
-      <a href="#" class="nav__brand"><i data-feather="feather"></i>Bartosz</a>
-      <ul class="nav__list" role="navigation">
-        <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#publications">Publications</a></li>
-        <li><a class="nav__link" href="#news">News</a></li>
-        <li><a class="nav__link" href="#contact">Contact</a></li>
-      </ul>
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#home" aria-label="Bartosz Łabiszak — home"><span class="brand-mark" aria-hidden="true">BŁ</span><span>Bartosz Łabiszak<span class="brand-sub">EVOLUTIONARY GENOMICS</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden>Menu <span aria-hidden="true">＋</span></button>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#teaching">Teaching</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Use light colour scheme" aria-pressed="true" hidden><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<main id="main">
+  <section class="hero container" id="home" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="small-rule"></span> POPULATION GENETICS · FOREST TREES</p>
+      <h1 id="hero-title">Bartosz<br>Łabiszak<span class="name-dot">.</span></h1>
+      <p class="hero-statement">Understanding evolution.<br><em>Informing conservation.</em></p>
+      <p class="hero-description">I study how evolutionary history, gene flow and adaptation shape the genetic diversity of forest trees.</p>
+      <div class="hero-actions"><a class="button" href="#research">Explore my research <span aria-hidden="true">↗</span></a><a class="text-link" href="#publications">Selected publications <span aria-hidden="true">↓</span></a></div>
+      <p class="affiliation">Assistant Professor · Adam Mickiewicz University<br><span>Poznań, Poland</span></p>
     </div>
-  </header>
-
-  <!-- ====== HERO ====== -->
-  <section class="hero">
-    <div class="hero__content" data-reveal>
-      <h1 class="hero__title">Dr Bartosz Łabiszak</h1>
-      <p class="hero__subtitle">Population Geneticist | Conservation Genomics of Forest Trees</p>
-      <a href="#contact" class="btn">Get in touch</a>
-    </div>
-    <svg class="wave wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 36s240-12 360-12S720 42 840 48 1080 36 1200 36s240 12 360 12S480 84 360 90 240 108 120 120 0 108 0 108Z"></path></svg>
+    <figure class="forest-figure">
+      <div class="forest-image"><img src="assets/hero.jpg" alt="Sunlit trunks and canopy in a pine forest" fetchpriority="high" width="3551" height="5326"></div>
+      <div class="forest-overlay" aria-hidden="true"></div>
+      <span class="figure-label" aria-hidden="true">FROM GENOMES TO FORESTS</span>
+      <figcaption><span>Evolution in a<br><em>changing world.</em></span><span class="figure-index" aria-hidden="true">01 / FIELD</span></figcaption>
+    </figure>
   </section>
-  <!-- ====== /HERO ====== -->
+  <div class="topics-strip"><div class="container"><span>Evolutionary history</span><span aria-hidden="true">✳</span><span>Hybridisation & gene flow</span><span aria-hidden="true">✳</span><span>Conservation genomics</span></div></div>
 
-  <!-- ====== ABOUT ====== -->
-  <section id="about" data-reveal>
-    <div class="wrapper profile">
-      <img src="assets/profile.jpg" alt="Portrait of Bartosz Łabiszak" loading="lazy">
-      <div>
-        <h2><i data-feather="user" class="icon"></i> About&nbsp;Me</h2>
-        <p>I am an Assistant Professor (Research) at the Institute of Environmental Biology, Adam Mickiewicz University, Poznań, where I investigate the genomic underpinnings of adaptation, speciation and hybridization in European pines and other forest trees. My work integrates field sampling, high‑throughput sequencing and computational phylogenomics to understand how demographic history and climate have shaped current diversity, and to inform conservation and forest management strategies.</p>
+  <section id="about" class="section container about" aria-labelledby="about-title">
+    <div class="section-label"><span>01</span> ABOUT</div>
+    <div class="about-content">
+      <div class="about-text"><h2 id="about-title">Reading the past.<br><em>Understanding diversity.</em></h2>
+        <p class="lead">I am a population geneticist interested in the processes that generate and maintain diversity in forest trees.</p>
+        <p>Based at the Institute of Environmental Biology, Adam Mickiewicz University in Poznań, I combine field sampling, genomic data and computational analyses to study adaptation, speciation and hybridisation, particularly in European pines.</p>
+        <p>My research connects evolutionary questions with the conservation of threatened species and the management of forest genetic resources.</p>
+        <a class="text-link" href="https://zerios.amu.edu.pl/pracownicy/bartosz-labiszak/">University profile <span aria-hidden="true">↗</span></a>
       </div>
+      <figure class="portrait"><img src="assets/profile.jpg" alt="Bartosz Łabiszak at a scientific conference" width="1803" height="1808" loading="lazy"><figcaption>Bartosz Łabiszak, PhD<span>Adam Mickiewicz University in Poznań</span></figcaption></figure>
     </div>
   </section>
-  <!-- ====== /ABOUT ====== -->
 
-  <!-- ====== PUBLICATIONS ====== -->
-  <section id="publications" class="section--alt" data-reveal>
-    <div class="wrapper">
-      <h2><i data-feather="book-open" class="icon"></i> Publications</h2>
-      <!-- Existing publication list kept unchanged -->
+  <section class="research-section" id="research" aria-labelledby="research-title"><div class="container section">
+    <div class="section-label"><span>02</span> RESEARCH</div>
+    <div class="section-heading"><h2 id="research-title">The questions<br><em>behind the data.</em></h2><p>Using genomic variation to understand how tree populations diverge, interact and respond to their environment.</p></div>
+    <div class="research-list">
+      <article class="research-row"><span class="row-number">01 /</span><h3>Species boundaries<br>& hybridisation</h3><div><p>How do closely related species remain distinct while exchanging genes? I investigate gene flow and the evolutionary history of European pines, with a focus on the <i>Pinus mugo</i> complex and <i>P. sylvestris</i>.</p><p class="keywords">SPECIATION · INTROGRESSION · HYBRID ZONES</p></div></article>
+      <article class="research-row"><span class="row-number">02 /</span><h3>Population history<br>& genetic diversity</h3><div><p>Present-day diversity carries a record of past events. I use nuclear and organellar markers to investigate demographic history, population structure and postglacial recolonisation.</p><p class="keywords">PHYLOGEOGRAPHY · DEMOGRAPHY · ORGANELLAR DNA</p></div></article>
+      <article class="research-row"><span class="row-number">03 /</span><h3>Adaptation<br>& conservation</h3><div><p>Understanding genetic variation can inform the conservation of forest trees. I examine environmental associations and adaptive potential in the context of climate change and forest genetic resources.</p><p class="keywords">LOCAL ADAPTATION · CLIMATE CHANGE · CONSERVATION</p></div></article>
+    </div>
+  </div></section>
+
+  <section id="publications" class="section container" aria-labelledby="publications-title">
+    <div class="section-label"><span>03</span> SELECTED PUBLICATIONS</div>
+    <div class="section-heading"><h2 id="publications-title">Research in print.</h2><a class="text-link" href="https://orcid.org/0000-0002-2548-9186">Full publication record on ORCID <span aria-hidden="true">↗</span></a></div>
+    <div class="publication-list">
+      <article class="publication"><span class="pub-year">2025</span><div><p class="pub-journal">EVOLUTIONARY APPLICATIONS</p><h3><a href="https://doi.org/10.1111/eva.70180">Adaptive Potential and Genomic Vulnerability of Keystone Forest Tree Species to Climate Change: A Case Study in Scots Pine<span class="pub-arrow" aria-hidden="true">↗</span></a></h3><p class="pub-authors"><strong>Łabiszak, B.</strong> & Wachowiak, W. · 18(12), e70180</p></div></article>
+      <article class="publication"><span class="pub-year">2024</span><div><p class="pub-journal">JOURNAL OF SYSTEMATICS AND EVOLUTION</p><h3><a href="https://doi.org/10.1111/jse.13013">Mid-Pleistocene events influenced the current spatial structure of genetic diversity in Scots pine (<i>Pinus sylvestris</i> L.)<span class="pub-arrow" aria-hidden="true">↗</span></a></h3><p class="pub-authors"><strong>Łabiszak, B.</strong> & Wachowiak, W. · 62(3), 561–576</p></div></article>
+      <article class="publication"><span class="pub-year">2024</span><div><p class="pub-journal">BMC PLANT BIOLOGY</p><h3><a href="https://doi.org/10.1186/s12870-024-05732-y">Hybridization has localized effect on genetic variation in closely related pine species<span class="pub-arrow" aria-hidden="true">↗</span></a></h3><p class="pub-authors">Szczepański, S., <strong>Łabiszak, B.</strong>, Lasek, M. & Wachowiak, W.</p></div></article>
+      <article class="publication"><span class="pub-year">2021</span><div><p class="pub-journal">FORESTS</p><h3><a href="https://doi.org/10.3390/f12040489">Molecular Signatures of Reticulate Evolution within the Complex of European Pine Taxa<span class="pub-arrow" aria-hidden="true">↗</span></a></h3><p class="pub-authors"><strong>Łabiszak, B.</strong> & Wachowiak, W. · 12(4), 489</p></div></article>
     </div>
   </section>
-  <!-- ====== /PUBLICATIONS ====== -->
 
-  <!-- ====== NEWS ====== -->
-  <section id="news" class="section--alt" data-reveal>
-    <div class="wrapper">
-      <h2><i data-feather="rss" class="icon"></i> Latest&nbsp;News</h2>
-      <ul class="news__list">
-        {% for post in site.posts limit:5 %}
-          <li>
-            <span class="news__date">{{ post.date | date: "%b&nbsp;%d&nbsp;%Y" }}</span>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-      <p class="news__archive"><a href="/news.html">Archive&nbsp;▶</a></p>
-    </div>
-  </section>
-  <!-- ====== /NEWS ====== -->
+  <section class="teaching-section" id="teaching" aria-labelledby="teaching-title"><div class="container section teaching-grid">
+    <div><div class="section-label"><span>04</span> TEACHING & RESOURCES</div><h2 id="teaching-title">From biological questions<br><em>to working with data.</em></h2><p>I teach population genomics, molecular ecology, conservation genetics and R programming for scientists.</p></div>
+    <div class="resources"><a class="resource" href="https://github.com/BLabiszak/GenPop_class"><div><span class="resource-type">COURSE MATERIALS</span><h3>Population genomics</h3><p>Explore the GenPop_class repository.</p></div><span aria-hidden="true">↗</span></a><a class="resource" href="https://github.com/BLabiszak"><div><span class="resource-type">CODE & REPOSITORIES</span><h3>Explore my GitHub</h3><p>Research code and teaching resources.</p></div><span aria-hidden="true">↗</span></a></div>
+  </div></section>
 
-  <!-- ====== CONTACT ====== -->
-  <section id="contact" data-reveal>
-    <div class="wrapper">
-      <h2><i data-feather="mail" class="icon"></i> Contact</h2>
-      <!-- Contact details kept unchanged -->
-    </div>
-  </section>
-  <!-- ====== /CONTACT ====== -->
-
-  <footer>
-    <p>&copy; <span id="year"></span> Bartosz Łabiszak &middot; Built with&nbsp;<a href="https://pages.github.com/">GitHub Pages</a></p>
-  </footer>
-
-  <script>
-    // Feather icons
-    feather.replace();
-    // Theme toggle
-    const btn=document.getElementById('themeToggle');
-    btn.addEventListener('click',()=>document.documentElement.classList.toggle('dark'));
-
-    // Reveal on scroll
-    const obs=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){entry.target.classList.add('reveal-visible');obs.unobserve(entry.target);}
-      });
-    },{threshold:.2});
-    document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
-
-    // Current year
-    document.getElementById('year').textContent=new Date().getFullYear();
-  </script>
+  <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container section">
+    <div class="section-label"><span>05</span> CONTACT</div>
+    <div class="contact-grid"><div><h2 id="contact-title">Let’s talk<br><em>science.</em></h2><p>For research collaborations, questions about my work<br class="desktop-break"> or teaching enquiries, get in touch.</p><a class="email-link" href="mailto:bartosz.labiszak@amu.edu.pl">bartosz.labiszak@amu.edu.pl <span aria-hidden="true">↗</span></a></div><div class="contact-details"><p class="contact-label">BASED AT</p><p>Institute of Environmental Biology<br>Faculty of Biology<br>Adam Mickiewicz University in Poznań</p><p>Poznań, Poland</p><div class="social-links"><a href="https://orcid.org/0000-0002-2548-9186">ORCID ↗</a><a href="https://github.com/BLabiszak">GitHub ↗</a><a href="https://zerios.amu.edu.pl/pracownicy/bartosz-labiszak/">AMU ↗</a></div></div></div>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="container"><p>© <span id="year">2026</span> Bartosz Łabiszak</p><p>Evolutionary & conservation genomics</p><a href="#home">Back to top ↑</a></div></footer>
 </body>
 </html>
