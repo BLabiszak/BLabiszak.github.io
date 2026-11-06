@@ -1,0 +1,14 @@
+# Keep the repo lean and public-safe.
+# Full-resolution photos, drafts and anything unpublished stay on your computer.
+originals/
+drafts/
+*.psd
+*.tif
+*.tiff
+*.raw
+*.CR2
+*.NEF
+*.heic
+.DS_Store
+Thumbs.db
+__pycache__/
