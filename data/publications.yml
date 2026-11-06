@@ -1,0 +1,226 @@
+# ─────────────────────────────────────────────────────────────
+#  Publications — the ONLY place you need to edit.
+#
+#  Add a new paper by copying a block and changing the fields.
+#  On push, a GitHub Action rebuilds publications.html, the
+#  homepage highlights and assets/publications.bib automatically.
+#  (Locally: python3 tools/build_publications.py)
+#
+#  Fields
+#    id        short unique key, also used as the BibTeX key
+#    authors   list, exactly as printed; your name is bolded automatically
+#    year      issue year (online-first year can go in `note`)
+#    title     *asterisks* → italics (use for Latin names)
+#    journal, volume, issue, pages   — leave blank if unknown
+#    doi       without https://doi.org/
+#    topics    any of: hybridisation, scots-pine, organellar, adaptation,
+#              conservation, phylogeography, methods, other
+#    oa        true if open access
+#    data      URL of the dataset (Dryad, Zenodo, …)
+#    code      URL of the code (GitHub, …)
+#    featured  true → also shown on the homepage (keep to ~5)
+#    tldr      one plain-language sentence, in your own voice
+# ─────────────────────────────────────────────────────────────
+
+- id: lasek2026admixture
+  authors: [Lasek M., Łabiszak B., Wachowiak W.]
+  year: 2026
+  title: "Admixture-driven genetic diversity supports adaptive potential in Scots pine: implications for climate-resilient forest management"
+  journal: Forest Ecology and Management
+  volume: "606"
+  pages: "123531"
+  doi: ""            # TODO: add DOI
+  topics: [scots-pine, adaptation, conservation]
+
+- id: labiszak2025repeatable
+  authors: [Łabiszak B., Szczepański S., Wachowiak W.]
+  year: 2025
+  title: "Repeatable genomic outcomes along the speciation continuum: insights from pine hybrid zones (genus *Pinus*)"
+  journal: Molecular Ecology
+  doi: 10.1111/mec.70137
+  topics: [hybridisation]
+  oa: true
+  data: https://doi.org/10.5061/dryad.xwdbrv1rg
+  featured: true
+  tldr: "Three independent Scots × mountain pine hybrid zones, 1,300+ trees, the same genomic outcome every time — and peat-bog pine looks less like a species and more like a hybrid caught mid-way."
+
+- id: labiszak2025adaptive
+  authors: [Łabiszak B., Wachowiak W.]
+  year: 2025
+  title: "Adaptive potential and genomic vulnerability of keystone forest tree species to climate change: a case study in Scots pine"
+  journal: Evolutionary Applications
+  volume: "18"
+  issue: "12"
+  pages: "e70180"
+  doi: 10.1111/eva.70180
+  topics: [scots-pine, adaptation, conservation]
+  oa: true
+  featured: true
+  tldr: "Temperature drives local adaptation in Scots pine, and the climate is now changing faster than northern populations can keep up with."
+
+- id: szczepanski2025adaptive
+  authors: [Szczepański S., Łabiszak B., Wachowiak W.]
+  year: 2025
+  title: "Molecular signatures of adaptive introgression and selection in contact zones of closely related pine species (*Pinus* genus)"
+  journal: BMC Plant Biology
+  volume: "25"
+  pages: "1423"
+  doi: 10.1186/s12870-025-07490-x
+  topics: [hybridisation, adaptation]
+  oa: true
+
+- id: piechnik2025staphylea
+  authors: [Piechnik Ł., Łabiszak B., Cieślak E., Szczepański S., Kurek P., Novikov A., Rosati L., Dönmez A. A., Dering M., Wójcik T., Wiatrowska B., Żywiec M., Wachowiak W.]
+  year: 2025
+  title: "Genetic and biometric patterns of rangewide divergence of iconic, Neogene relic broadleaved shrub species *Staphylea pinnata* L. – post-glacial expansion and human impact"
+  journal: Vegetation History and Archaeobotany
+  volume: "34"
+  pages: "399–413"
+  doi: 10.1007/s00334-024-01026-3
+  topics: [phylogeography, other]
+  oa: true
+
+- id: szczepanski2024hybridization
+  authors: [Szczepański S., Łabiszak B., Lasek M., Wachowiak W.]
+  year: 2024
+  title: "Hybridization has localized effect on genetic variation in closely related pine species"
+  journal: BMC Plant Biology
+  volume: "24"
+  pages: "1007"
+  doi: 10.1186/s12870-024-05732-y
+  topics: [hybridisation, organellar]
+  oa: true
+  featured: true
+  tldr: "Hybrid zones act as sinks, not melting pots: admixture stays local and never leaks into the allopatric populations."
+
+- id: labiszak2024midpleistocene
+  authors: [Łabiszak B., Wachowiak W.]
+  year: 2024
+  title: "Mid-Pleistocene events influenced the current spatial structure of genetic diversity in Scots pine (*Pinus sylvestris* L.)"
+  journal: Journal of Systematics and Evolution
+  volume: "62"
+  issue: "3"
+  pages: "561–576"
+  doi: 10.1111/jse.13013
+  note: "First published online 2023"
+  topics: [scots-pine, phylogeography]
+  featured: true
+  tldr: "Scots pine looks genetically uniform across Eurasia, but distinct lineages dating back to the mid-Pleistocene are still hiding in the data."
+
+- id: lasek2024provenance
+  authors: [Lasek M., Zaborowska J., Łabiszak B., Chmura D. J., Wachowiak W.]
+  year: 2024
+  title: "Genomic data support the revision of provenance regions delimitation for Scots pine"
+  journal: Evolutionary Applications
+  volume: "17"
+  issue: "11"
+  pages: "e70038"
+  doi: 10.1111/eva.70038
+  topics: [scots-pine, conservation]
+  oa: true
+
+- id: wachowiak2024roztocze
+  authors: [Wachowiak W., Szczepański S., Lasek M., Maciejewski Z., Łabiszak B.]
+  year: 2024
+  title: "Genetic perspective on forest management of Scots pine (*Pinus sylvestris* L.) in protected areas"
+  journal: Forest Ecology and Management
+  volume: "568"
+  pages: "122127"
+  doi: 10.1016/j.foreco.2024.122127
+  topics: [scots-pine, conservation, organellar]
+
+- id: szczepanski2023snapshot
+  authors: [Szczepański S., Łabiszak B., Wachowiak W.]
+  year: 2023
+  title: "Development of a SNaPshot assay for the genotyping of organellar SNPs in four closely related pines"
+  journal: Dendrobiology
+  volume: "90"
+  pages: "76–85"
+  doi: 10.12657/denbio.090.006
+  topics: [organellar, methods]
+
+- id: wachowiak2023phylogeography
+  authors: [Wachowiak W., Żukowska W. B., Perry A., Lewandowski A., Cavers S., Łabiszak B.]
+  year: 2023
+  title: "Phylogeography of Scots pine in Europe and Asia based on mtDNA polymorphisms"
+  journal: Journal of Systematics and Evolution
+  volume: "61"
+  pages: "315–327"
+  doi: 10.1111/jse.12907
+  topics: [scots-pine, phylogeography, organellar]
+
+- id: labiszak2021reticulate
+  authors: [Łabiszak B., Wachowiak W.]
+  year: 2021
+  title: "Molecular signatures of reticulate evolution within the complex of European pine taxa"
+  journal: Forests
+  volume: "12"
+  issue: "4"
+  pages: "489"
+  doi: 10.3390/f12040489
+  topics: [hybridisation]
+  oa: true
+  featured: true
+  tldr: "The European pine family tree is less a tree and more a net — peat-bog pine carries the fingerprints of several ancestors."
+
+- id: zaborowska2021altitude
+  authors: [Zaborowska J., Łabiszak B., Perry A., Cavers S., Wachowiak W.]
+  year: 2021
+  title: "Candidate genes for the high-altitude adaptations of two mountain pine taxa"
+  journal: International Journal of Molecular Sciences
+  volume: "22"
+  issue: "7"
+  pages: "3477"
+  doi: 10.3390/ijms22073477
+  topics: [adaptation]
+  oa: true
+
+- id: labiszak2021bottleneck
+  authors: [Łabiszak B., Zaborowska J., Wójkiewicz B., Wachowiak W.]
+  year: 2021
+  title: "Molecular and paleo-climatic data uncover impact of ancient bottleneck on demographic history and contemporary genetic structure of endangered *Pinus uliginosa*"
+  journal: Journal of Systematics and Evolution
+  doi: 10.1111/jse.12573
+  note: "First published online 2019"
+  topics: [conservation, phylogeography]
+  tldr: "Peat-bog pine's low diversity isn't a modern problem — it is the echo of an ancient population crash."
+
+- id: sobierajska2020hybridization
+  authors: [Sobierajska K., Wachowiak W., Zaborowska J., Łabiszak B., Wójkiewicz B., Sękiewicz M., Jasińska A. K., Sękiewicz K., Boratyńska K., Marcysiak K., Boratyński A.]
+  year: 2020
+  title: "Genetic consequences of hybridization in relict isolated trees *Pinus sylvestris* and the *Pinus mugo* complex"
+  journal: Forests
+  volume: "11"
+  issue: "10"
+  pages: "1086"
+  doi: 10.3390/f11101086
+  topics: [hybridisation, conservation]
+  oa: true
+
+- id: labiszak2019mtdna
+  authors: [Łabiszak B., Zaborowska J., Wachowiak W.]
+  year: 2019
+  title: "Patterns of mtDNA variation reveal complex evolutionary history of relict and endangered peat bog pine (*Pinus uliginosa*)"
+  journal: AoB PLANTS
+  doi: 10.1093/aobpla/plz015
+  topics: [organellar, conservation, phylogeography]
+  oa: true
+  tldr: "Fifteen new mitochondrial markers, one stubborn question: where did peat-bog pine come from?"
+
+- id: zaborowska2019mountain
+  authors: [Zaborowska J., Łabiszak B., Wachowiak W.]
+  year: 2019
+  title: "Population history of European mountain pines *Pinus mugo* and *Pinus uncinata* revealed by mitochondrial DNA markers"
+  journal: Journal of Systematics and Evolution
+  doi: 10.1111/jse.12520
+  topics: [organellar, phylogeography]
+
+- id: wachowiak2018divergence
+  authors: [Wachowiak W., Zaborowska J., Łabiszak B., Perry A., Zucca G. M., González-Martínez S. C., Cavers S.]
+  year: 2018
+  title: "Molecular signatures of divergence and selection in closely related pine taxa"
+  journal: Tree Genetics & Genomes
+  volume: "14"
+  pages: "83"
+  doi: 10.1007/s11295-018-1296-3
+  topics: [hybridisation, adaptation]

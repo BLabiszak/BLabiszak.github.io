@@ -1,0 +1,36 @@
+name: Build publications
+
+# Rebuilds publications.html, the homepage highlights and the BibTeX file
+# whenever data/publications.yml (or the generator) changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/publications.yml
+      - tools/build_publications.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python3 tools/build_publications.py
+      - name: Commit generated files
+        run: |
+          if git diff --quiet; then
+            echo "Nothing to update."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add publications.html index.html assets/publications.bib
+            git commit -m "Rebuild publications from data/publications.yml"
+            git push
+          fi
