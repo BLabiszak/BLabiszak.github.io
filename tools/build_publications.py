@@ -54,11 +54,22 @@ def fmt_author(name: str) -> str:
     return f"<strong>{shown}</strong>" if surname == ME else shown
 
 
-def fmt_authors(authors: list[str]) -> str:
+def fmt_authors(authors: list[str], short: bool = False) -> str:
     parts = [fmt_author(a) for a in authors]
     if len(parts) == 1:
         return parts[0]
-    return ", ".join(parts[:-1]) + " &amp; " + parts[-1]
+    full = ", ".join(parts[:-1]) + " &amp; " + parts[-1]
+    if not short or len(parts) <= 7:
+        return full
+    # Long lists: first four (plus me if I am further down), then a count.
+    keep = parts[:4]
+    mine = [x for x in parts[4:] if x.startswith("<strong>")]
+    keep += mine
+    hidden = len(parts) - len(keep)
+    return (
+        f'<span aria-hidden="true">{", ".join(keep)} <span class="more">+{hidden} more</span></span>'
+        f'<span class="visually-hidden">{full}</span>'
+    )
 
 
 def citation_tail(p: dict) -> str:
@@ -113,45 +124,65 @@ def links_row(p: dict) -> str:
     return '<div class="pub-links">' + "".join(items) + "</div>"
 
 
-def badges(p: dict) -> str:
+def flags(p: dict) -> str:
     out = []
     if p["authors"][0].startswith(ME):
-        out.append('<span class="badge badge-first" title="First author">First author</span>')
+        out.append('<span class="flag flag-first">First author</span>')
     if p.get("oa"):
-        out.append('<span class="badge" title="Open access">Open access</span>')
+        out.append('<span class="flag">Open access</span>')
     if p.get("data"):
-        out.append('<span class="badge" title="Data available">Data</span>')
+        out.append('<span class="flag">Data</span>')
     if p.get("code"):
-        out.append('<span class="badge" title="Code available">Code</span>')
+        out.append('<span class="flag">Code</span>')
     return "".join(out)
 
 
-def article(p: dict, full: bool) -> str:
+def heading(p: dict) -> str:
     title = rich(p["title"])
     href = doi_url(p)
-    heading = (
-        f'<a href="{esc(href)}">{title}<span class="pub-arrow" aria-hidden="true">↗</span></a>'
-        if href else title
-    )
+    return f'<a href="{esc(href)}">{title}</a>' if href else title
+
+
+def tldr(p: dict) -> str:
+    return f'<p class="pub-tldr"><span>TL;DR</span> {rich(p["tldr"])}</p>' if p.get("tldr") else ""
+
+
+def article(p: dict, full: bool) -> str:
+    """Homepage highlight (full=False) or full-list entry (full=True)."""
     tail = citation_tail(p)
-    authors = fmt_authors(p["authors"]) + (f" · {tail}" if tail else "")
-    note = f' <span class="pub-note">{esc(p["note"])}</span>' if full and p.get("note") else ""
-    tldr = f'<p class="pub-tldr"><span>TL;DR</span> {rich(p["tldr"])}</p>' if p.get("tldr") else ""
+    if not full:
+        authors = fmt_authors(p["authors"], short=True)
+        return (
+            f'<article class="highlight"><p class="pub-journal">{p["year"]} · {esc(p.get("journal", ""))}</p>'
+            f"<h3>{heading(p)}</h3>{tldr(p)}"
+            f'<p class="pub-authors">{authors}</p></article>'
+        )
+    authors = fmt_authors(p["authors"], short=True) + (f" · {tail}" if tail else "")
+    note = f'<span class="pub-note">{esc(p["note"])}</span>' if p.get("note") else ""
     topics = " ".join(p.get("topics", []))
     first = "true" if p["authors"][0].startswith(ME) else "false"
     search = esc(" ".join([plain(p["title"]), p.get("journal", ""), " ".join(p["authors"])]).lower())
-    attrs = (
-        f' id="{esc(p["id"])}" data-year="{p["year"]}" data-topics="{esc(topics)}" data-first="{first}" data-search="{search}"'
-        if full else ""
-    )
-    extra = (links_row(p) if full else "")
     return (
-        f'<article class="publication"{attrs}><span class="pub-year">{p["year"]}</span><div>'
-        f'<p class="pub-journal">{esc(p.get("journal", "").upper())}{badges(p) if full else ""}</p>'
-        f"<h3>{heading}</h3>"
+        f'<article class="pub-item" id="{esc(p["id"])}" data-topics="{esc(topics)}" data-first="{first}" data-search="{search}">'
+        f'<p class="pub-journal">{esc(p.get("journal", ""))}{flags(p)}</p>'
+        f"<h3>{heading(p)}</h3>"
         f'<p class="pub-authors">{authors}{note}</p>'
-        f"{tldr}{extra}</div></article>"
+        f"{tldr(p)}{links_row(p)}</article>"
     )
+
+
+def year_groups(pubs: list[dict]) -> str:
+    out, years = [], []
+    for p in pubs:
+        if p["year"] not in years:
+            years.append(p["year"])
+    for y in years:
+        items = "\n".join(article(p, full=True) for p in pubs if p["year"] == y)
+        out.append(
+            f'<section class="year-group" data-year="{y}" aria-label="{y}">'
+            f'<h3 class="year-heading">{y}</h3><div class="year-items">\n{items}\n</div></section>'
+        )
+    return "\n".join(out)
 
 
 def filters(pubs: list[dict]) -> str:
@@ -220,9 +251,9 @@ def main() -> None:
             if p.get(k) is not None:
                 p[k] = str(p[k])
     validate(pubs)
-    pubs.sort(key=lambda p: (-p["year"], p["id"]))
+    pubs.sort(key=lambda p: -p["year"])  # stable: YAML order within a year
 
-    full = "\n".join(article(p, full=True) for p in pubs)
+    full = year_groups(pubs)
     replace_block(
         ROOT / "publications.html",
         "PUBS",
@@ -230,7 +261,7 @@ def main() -> None:
     )
 
     featured = [p for p in pubs if p.get("featured")]
-    replace_block(ROOT / "index.html", "FEATURED", "\n".join(article(p, full=False) for p in featured))
+    replace_block(ROOT / "index.html", "FEATURED", '<div class="highlights">\n' + "\n".join(article(p, full=False) for p in featured) + "\n</div>")
 
     bib = "% Generated from data/publications.yml — do not edit by hand.\n\n" + "\n\n".join(bibtex(p) for p in pubs) + "\n"
     (ROOT / "assets" / "publications.bib").write_text(bib, encoding="utf-8")

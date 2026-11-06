@@ -4,7 +4,8 @@
   const panel = document.querySelector('.pub-filters');
   const list = document.getElementById('pub-list');
   if (!panel || !list) return;
-  const items = [...list.querySelectorAll('.publication')];
+  const items = [...list.querySelectorAll('.pub-item')];
+  const groups = [...list.querySelectorAll('.year-group')];
   const chips = [...panel.querySelectorAll('.chip')];
   const search = panel.querySelector('input[type=search]');
   const firstOnly = panel.querySelector('.first-toggle input');
@@ -22,6 +23,7 @@
       el.hidden = !ok;
       if (ok) shown++;
     }
+    for (const g of groups) g.hidden = !g.querySelector('.pub-item:not([hidden])');
     count.textContent = shown === items.length ? `${shown} articles` : `${shown} of ${items.length} articles`;
     empty.hidden = shown !== 0;
   }
