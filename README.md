@@ -2,27 +2,50 @@
 
 Personal research and teaching website, published through GitHub Pages at https://blabiszak.github.io/.
 
-## Editing
+Plain HTML, CSS and JavaScript. No framework, no external fonts or icon libraries, and every page stays readable without JavaScript.
 
-- `index.html`: biography, research themes, selected publications, teaching links and contact details.
-- `assets/site.css`: responsive layout, colours, typography, light/dark themes and print styles.
-- `assets/site.js`: accessible mobile navigation, saved colour preference and footer year.
-- `assets/profile.jpg` and `assets/hero.jpg`: existing repository photographs.
-- `assets/favicon.svg`: browser icon.
+## Everyday edits
 
-The site is plain HTML, CSS and JavaScript. No installation, build step, external font service or icon library is required. Content and navigation remain available without JavaScript. Keep GitHub Pages pointed to the root of the publishing branch.
+| I want to… | Edit |
+|---|---|
+| Add or fix a **publication** | `data/publications.yml` — see below |
+| Post a **news** item | the `<ul class="news-list">` in `index.html` (newest first, keep 4–6) |
+| Add a **student** | the `.mentoring` block in `index.html` |
+| Change bio, research themes, teaching, contact | `index.html` |
+| Colours, typography, layout | `assets/site.css` (theme tokens are at the top) |
 
-Selected publications are written directly in `index.html` so they remain accessible without JavaScript. The older `assets/pubs.yml` is retained for reference and is not used by the redesigned page.
+### Adding a publication
 
-## Content references
+1. Open `data/publications.yml` on GitHub and click ✏️.
+2. Copy an existing entry, change the fields, commit.
+3. The **Build publications** GitHub Action regenerates `publications.html`, the homepage highlights and `assets/publications.bib` within a minute or two.
 
-The selected bibliography, institutional affiliation and professional contact details were checked against:
+Field notes are at the top of the YAML file. Useful ones:
 
-- [AMU profile](https://zerios.amu.edu.pl/pracownicy/bartosz-labiszak/)
-- [ORCID](https://orcid.org/0000-0002-2548-9186)
-- [Evolutionary Applications, 2025](https://doi.org/10.1111/eva.70180)
-- [Journal of Systematics and Evolution, 2024](https://doi.org/10.1111/jse.13013) — uses the 2024 issue year; first published online in 2023.
-- [BMC Plant Biology, 2024](https://doi.org/10.1186/s12870-024-05732-y)
-- [Forests, 2021](https://doi.org/10.3390/f12040489)
+- `featured: true` — also show the paper on the homepage (keep this to about five).
+- `tldr:` — one plain-language sentence, shown in italics under the title.
+- `data:` / `code:` / `pdf:` — add links and badges.
+- Wrap Latin names in `*asterisks*` to italicise them.
 
-The selection is not intended as a complete bibliography; the page links to ORCID for the full record. Existing image files have been retained without changing their licensing status.
+Do **not** edit the generated parts by hand: everything between `<!-- PUBS:START -->` / `<!-- PUBS:END -->` in `publications.html` and `<!-- FEATURED:START -->` / `<!-- FEATURED:END -->` in `index.html` is overwritten on each build.
+
+To build locally instead: `pip install pyyaml && python3 tools/build_publications.py`.
+
+> The Action needs write access: *Settings → Actions → General → Workflow permissions → Read and write*.
+
+## Files
+
+- `index.html` — homepage (about, research, news, selected papers, teaching & mentoring, contact)
+- `publications.html` — full, filterable publication list
+- `404.html` — the "lost to genetic drift" page
+- `data/publications.yml` — publication data (source of truth)
+- `tools/build_publications.py` — renders the YAML into the pages + BibTeX
+- `assets/site.css`, `assets/site.js` — styles, theme toggle, mobile menu
+- `assets/publications.js` — search, topic filters and copy-BibTeX buttons
+- `assets/hero-700.webp`, `hero-1100.{webp,jpg}`, `profile-640.jpg`, `og-image.jpg` — web-sized images
+- `assets/hero.jpg`, `assets/profile.jpg` — full-resolution originals (not served on the page)
+- `sitemap.xml`, `robots.txt` — for search engines
+
+## Images
+
+Originals are kept at full resolution; the page loads resized copies. If you replace a photo, export a ~1100 px wide WebP/JPEG (about 150–300 KB) rather than linking the camera original.
