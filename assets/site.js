@@ -7,7 +7,7 @@ function setTheme(dark) {
 }
 let storedTheme;
 try { storedTheme = localStorage.getItem('bl-theme'); } catch { /* Storage may be unavailable. */ }
-setTheme(storedTheme === 'dark');
+setTheme(storedTheme !== 'light');
 themeButton.hidden = false;
 themeButton.addEventListener('click', () => {
   const dark = document.documentElement.dataset.theme !== 'dark';
