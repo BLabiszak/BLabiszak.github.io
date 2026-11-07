@@ -20,6 +20,9 @@ const mobile = window.matchMedia('(max-width: 760px)');
 function closeMenu() {
   menuButton.setAttribute('aria-expanded', 'false');
   navigation.hidden = mobile.matches;
+  // Native hash navigation runs before ResizeObserver after a menu closes.
+  const closedHeader = document.querySelector('.site-header');
+  if (closedHeader) document.documentElement.style.setProperty('--header-height', `${closedHeader.getBoundingClientRect().height}px`);
 }
 menuButton.hidden = false;
 closeMenu();
@@ -36,3 +39,41 @@ document.addEventListener('keydown', event => {
   }
 });
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Match anchor offsets to the actual header, including zoom and an open menu.
+const header = document.querySelector('.site-header');
+if (header && 'ResizeObserver' in window) {
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+  }).observe(header);
+}
+
+// Only homepage section links participate; the archive keeps aria-current=page.
+const sectionLinks = [...navigation.querySelectorAll('a[href^="#"]')]
+  .map(link => ({ link, section: document.getElementById(link.hash.slice(1)) }))
+  .filter(item => item.section);
+if (sectionLinks.length) {
+  let pending = false;
+  function updateSection() {
+    const marker = (header?.getBoundingClientRect().height || 80) + 100;
+    let current;
+    for (const item of sectionLinks) {
+      if (item.section.getBoundingClientRect().top <= marker) current = item;
+    }
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+      current = sectionLinks[sectionLinks.length - 1];
+    }
+    for (const item of sectionLinks) {
+      if (item === current) item.link.setAttribute('aria-current', 'location');
+      else item.link.removeAttribute('aria-current');
+    }
+    pending = false;
+  }
+  function scheduleSection() {
+    if (!pending) { pending = true; requestAnimationFrame(updateSection); }
+  }
+  window.addEventListener('scroll', scheduleSection, { passive: true });
+  window.addEventListener('resize', scheduleSection);
+  window.addEventListener('hashchange', scheduleSection);
+  updateSection();
+}
