@@ -9,7 +9,7 @@ Plain HTML, CSS and JavaScript. No framework, no external fonts or icon librarie
 | I want to… | Edit |
 |---|---|
 | Add or fix a **publication** | `data/publications.yml` — see below |
-| Post a **news** item | the `<ul class="news-list">` in `index.html` (newest first, keep 4–6) |
+| Post a **news** item | the `<ul class="news-grid">` in `index.html` (newest first, keep four) |
 | Add a **student** | the `.mentoring` block in `index.html` |
 | Change bio, research themes, teaching, contact | `index.html` |
 | Colours, typography, layout | `assets/site.css` (theme tokens are at the top) |
@@ -22,8 +22,8 @@ Plain HTML, CSS and JavaScript. No framework, no external fonts or icon librarie
 
 Field notes are at the top of the YAML file. Useful ones:
 
-- `featured: true` — also show the paper on the homepage (keep this to about five).
-- `tldr:` — one plain-language sentence, shown in italics under the title.
+- `featured: true` — also show the paper on the homepage (keep this to about three).
+- `tldr:` — one plain-language sentence, shown under the title in readable body text.
 - `data:` / `code:` / `pdf:` — add links and badges.
 - Wrap Latin names in `*asterisks*` to italicise them.
 
@@ -57,3 +57,14 @@ Everything here is public: the repository and the website alike. Only commit mat
 - **No:** manuscripts under review, unpublished results, grant drafts, student data, raw camera photos.
 
 `.gitignore` already excludes `originals/` and `drafts/` folders, so you can keep those next to the site locally without them being pushed.
+
+## Research figures
+
+The homepage includes two unmodified figures from Szczepański, Łabiszak, Lasek & Wachowiak (2024), *Hybridization has localized effect on genetic variation in closely related pine species*, BMC Plant Biology 24, 1007. DOI: https://doi.org/10.1186/s12870-024-05732-y.
+
+- `assets/research/hybridisation.png`: Figure 3, nuclear microsatellite PCA.
+- `assets/research/haplotypes.png`: Figure 1, mitochondrial haplotypes and their geographic distribution.
+
+Both are reproduced under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with visible attribution and links to the original figures. They are displayed in full on a white background, without cropping or recolouring. Source images are served locally; no publisher requests are required to view the page.
+
+Course names follow the [AMU staff profile](https://zerios.amu.edu.pl/pracownicy/bartosz-labiszak/). The list describes teaching subjects, not a semester timetable.

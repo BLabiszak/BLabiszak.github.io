@@ -152,10 +152,17 @@ def article(p: dict, full: bool) -> str:
     tail = citation_tail(p)
     if not full:
         authors = fmt_authors(p["authors"], short=True)
+        href = doi_url(p) or f"publications.html#{p['id']}"
+        links = f'<a href="{esc(href)}">Read paper <span aria-hidden="true">↗</span></a>'
+        if p.get("data"):
+            links += f'<a href="{esc(p["data"])}">Dataset <span aria-hidden="true">↗</span></a>'
+        links += f'<a href="publications.html#{esc(p["id"])}">Citation <span aria-hidden="true">→</span></a>'
         return (
-            f'<article class="highlight"><p class="pub-journal">{p["year"]} · {esc(p.get("journal", ""))}</p>'
-            f"<h3>{heading(p)}</h3>{tldr(p)}"
-            f'<p class="pub-authors">{authors}</p></article>'
+            f'<article class="highlight"><div class="highlight-meta"><p class="highlight-year">{p["year"]}</p>'
+            f'<p class="pub-journal">{esc(p.get("journal", ""))}</p></div>'
+            f'<div class="highlight-body"><h3>{heading(p)}</h3>'
+            f'<p class="pub-authors">{authors}</p>{tldr(p)}'
+            f'<div class="highlight-links">{links}</div></div></article>'
         )
     authors = fmt_authors(p["authors"], short=True) + (f" · {tail}" if tail else "")
     note = f'<span class="pub-note">{esc(p["note"])}</span>' if p.get("note") else ""

@@ -18,7 +18,7 @@
 #    oa        true if open access
 #    data      URL of the dataset (Dryad, Zenodo, …)
 #    code      URL of the code (GitHub, …)
-#    featured  true → also shown on the homepage (keep to ~5)
+#    featured  true → also shown on the homepage (keep to about 3)
 #    tldr      one plain-language sentence, in your own voice
 # ─────────────────────────────────────────────────────────────
 
@@ -42,7 +42,7 @@
   oa: true
   data: https://doi.org/10.5061/dryad.xwdbrv1rg
   featured: true
-  tldr: "Three independent Scots × mountain pine hybrid zones, 1,300+ trees, the same genomic outcome every time — and peat-bog pine looks less like a species and more like a hybrid caught mid-way."
+  tldr: "Genomic evidence from three contact zones reveals repeatable patterns of hybridisation among closely related pines."
 
 - id: labiszak2025adaptive
   authors: [Łabiszak B., Wachowiak W.]
@@ -56,7 +56,7 @@
   topics: [scots-pine, adaptation, conservation]
   oa: true
   featured: true
-  tldr: "Temperature drives local adaptation in Scots pine, and the climate is now changing faster than northern populations can keep up with."
+  tldr: "Genomic variation is associated with temperature, with projected climate shifts indicating a greater risk of maladaptation in northern populations."
 
 - id: szczepanski2025adaptive
   authors: [Szczepański S., Łabiszak B., Wachowiak W.]
@@ -91,7 +91,7 @@
   topics: [hybridisation, organellar]
   oa: true
   featured: true
-  tldr: "Hybrid zones act as sinks, not melting pots: admixture stays local and never leaks into the allopatric populations."
+  tldr: "Admixture was detected in contact zones, while the sampled allopatric populations showed no evidence of mixed ancestry."
 
 - id: labiszak2024midpleistocene
   authors: [Łabiszak B., Wachowiak W.]
@@ -104,7 +104,7 @@
   doi: 10.1111/jse.13013
   note: "First published online 2023"
   topics: [scots-pine, phylogeography]
-  featured: true
+  featured: false
   tldr: "Scots pine looks genetically uniform across Eurasia, but distinct lineages dating back to the mid-Pleistocene are still hiding in the data."
 
 - id: lasek2024provenance
@@ -160,7 +160,7 @@
   doi: 10.3390/f12040489
   topics: [hybridisation]
   oa: true
-  featured: true
+  featured: false
   tldr: "The European pine family tree is less a tree and more a net — peat-bog pine carries the fingerprints of several ancestors."
 
 - id: zaborowska2021altitude
